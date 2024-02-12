@@ -1,0 +1,41 @@
+filegroup {
+  name: "DaggerExample-app-module-src",
+  srcs: [
+    "src/main/java/**/*.java",
+    "src/main/java/**/*.kt"
+  ],
+}
+
+android_library {
+  name: "DaggerExample-app-module",
+  manifest: "src/main/AndroidManifest.xml",
+
+  resource_dirs: [
+    "src/main/res",
+  ],
+
+  srcs: [
+    ":DaggerExample-app-module-src",
+  ],
+
+  static_libs: [
+    "androidx.appcompat_appcompat",
+    "androidx.core_core-ktx",
+    "androidx-constraintlayout_constraintlayout",
+    "androidx.lifecycle_lifecycle-livedata-ktx",
+    "jsr330",
+    "dagger2",
+  ],
+
+  plugins: [
+    "dagger2-compiler",
+  ],
+
+  optimize: {
+    enabled: false,
+    //proguard_flags_files: ["proguard.flags"],
+  },
+
+  sdk_version: "system_current",
+  min_sdk_version: "31",
+}

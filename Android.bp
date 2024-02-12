@@ -1,0 +1,23 @@
+android_app {
+    name: "DaggerExample",
+    package_name: "com.kamrul.android.dagger",
+    manifest: "app/src/main/AndroidManifest.xml",
+    //resource_dirs: [],
+    //srcs: [],
+
+    static_libs: [
+        "DaggerExample-app-module",
+    ],
+
+    certificate: "shared",
+    privileged: true,
+    required: ["DaggerExample-app-module"],
+
+    optimize: {
+        enabled: false,
+        //proguard_flags_files: ["proguard.flags"],
+    },
+
+    sdk_version: "system_current",
+    min_sdk_version: "31",
+}
